@@ -5,7 +5,7 @@
 ## Install
 
 ~~~bash
-go get github.com/ILkUVayne/utlis-go
+go get -u github.com/ILkUVayne/utlis-go/v2
 ~~~
 
 ## Usage
