@@ -15,7 +15,7 @@ go get -u github.com/ILkUVayne/utlis-go/v2
 ~~~go
 package main
 
-import "github.com/ILkUVayne/utlis-go/str"
+import "github.com/ILkUVayne/utlis-go/v2/str"
 
 func main() {
     s := "HelloWorld"
