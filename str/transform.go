@@ -23,8 +23,8 @@ func CamelCaseToUnderscore(str string) string {
 	return string(output)
 }
 
-func String2Int64(s *string, intVal *int64) error {
-	i, err := strconv.ParseInt(*s, 10, 64)
+func String2Int64(s string, intVal *int64) error {
+	i, err := strconv.ParseInt(s, 10, 64)
 	if err != nil {
 		return err
 	}
@@ -34,8 +34,8 @@ func String2Int64(s *string, intVal *int64) error {
 	return nil
 }
 
-func String2Float64(s *string, intVal *float64) error {
-	i, err := strconv.ParseFloat(*s, 64)
+func String2Float64(s string, intVal *float64) error {
+	i, err := strconv.ParseFloat(s, 64)
 	if err != nil {
 		return err
 	}

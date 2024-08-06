@@ -16,39 +16,27 @@ func TestCamelCaseToUnderscore(t *testing.T) {
 func TestString2Int64(t *testing.T) {
 	var i int64
 	s := "65"
-	ok, err := String2Int64(&s, &i)
+	err := String2Int64(s, &i)
 	if err != nil {
 		t.Error(err)
 	}
-	if !ok {
-		t.Error("String2Int64 err : s = ", s)
-	}
 	s = "a65"
-	ok, err = String2Int64(&s, &i)
+	err = String2Int64(s, &i)
 	if err == nil {
 		t.Error(err)
-	}
-	if ok {
-		t.Error("String2Int64 err : s = ", s)
 	}
 }
 
 func TestString2Float64(t *testing.T) {
 	var f float64
 	s := "65.2"
-	ok, err := String2Float64(&s, &f)
+	err := String2Float64(s, &f)
 	if err != nil {
 		t.Error(err)
 	}
-	if !ok {
-		t.Error("String2Float64 err : s = ", s)
-	}
 	s = "a65"
-	ok, err = String2Float64(&s, &f)
+	err = String2Float64(s, &f)
 	if err == nil {
 		t.Error(err)
-	}
-	if ok {
-		t.Error("String2Float64 err : s = ", s)
 	}
 }
