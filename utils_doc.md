@@ -38,11 +38,11 @@ byte切片转int64
 
 驼峰表示法单词转下划线表示法单词，例如："HelloWorld" => "hello_world"
 
-- String2Int64(s *string, intVal *int64) (bool, error)
+- String2Int64(s string, intVal *int64) (bool, error)
 
 字符串转int64
 
-- String2Float64(s *string, intVal *float64) (bool, error)
+- String2Float64(s string, intVal *float64) (bool, error)
 
 字符串转float64
 
