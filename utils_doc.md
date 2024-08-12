@@ -6,6 +6,18 @@
 
 获取当前用户目录，例如：在linux中获取 `~` 目录，实际返回的值可能是 `/home/tom`
 
+- IsExists(path string) (os.FileInfo, bool)
+
+判断路径是否存在，存在返回true，反之false
+
+- IsDir(path string) (os.FileInfo, bool)
+
+判断是否是文件夹，不存在或者不是文件夹都会返回false
+
+- IsFile(path string) (os.FileInfo, bool)
+
+判断是否是文件，不存在或者不是文件都会返回false
+
 - DecodeEncoding(r *bufio.Reader) (*transform.Reader, error)
 
 将其他编码格式的文件转换为UTF-8

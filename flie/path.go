@@ -8,6 +8,11 @@ import (
 	"os/user"
 	"runtime"
 	"strings"
+	"sync"
+)
+
+var (
+	rw sync.RWMutex
 )
 
 // Home returns the home directory for the executing user.
@@ -59,4 +64,25 @@ func homeWindows() (string, error) {
 		return "", errors.New("HOMEDRIVE, HOMEPATH, and USERPROFILE are blank")
 	}
 	return home, nil
+}
+
+func IsExists(path string) (os.FileInfo, bool) {
+	rw.RLock()
+	defer rw.RUnlock()
+	f, err := os.Stat(path)
+	return f, err == nil || !errors.Is(err, os.ErrNotExist)
+}
+
+func IsDir(path string) (os.FileInfo, bool) {
+	rw.RLock()
+	defer rw.RUnlock()
+	f, flag := IsExists(path)
+	return f, flag && f.IsDir()
+}
+
+func IsFile(path string) (os.FileInfo, bool) {
+	rw.RLock()
+	defer rw.RUnlock()
+	f, flag := IsExists(path)
+	return f, flag && !f.IsDir()
 }
